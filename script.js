@@ -36,7 +36,7 @@ function searchUsingXHR(query) {
             displayResults(JSON.parse(xhr.responseText))
         }
     })
-    let parms = 'api_key=' + APIkey + '&q=' + query + '&limit=5&rating=g';
+    let parms = 'api_key=' + APIkey + '&q=' + query + '&limit=10&rating=g';
     xhr.open('GET', API + '?' + parms)
     xhr.send()
 }
@@ -45,7 +45,7 @@ function searchUsingFetch(query){
     if(!query ||query.trim().length ===0){
         return true
     }
-    let parms = 'api_key=' + APIkey + '&q=' + query + '&limit=5&rating=g';
+    let parms = 'api_key=' + APIkey + '&q=' + query + '&limit=10&rating=g';
     fetch(API + '?' + parms)
     .then((response)=> {
         return response.text()
@@ -60,7 +60,7 @@ async function searchUsingAsyncFetch(query){
     if(!query ||query.trim().length ===0){
         return true
     }
-    let parms = 'api_key=' + APIkey + '&q=' + query + '&limit=5&rating=g';
+    let parms = 'api_key=' + APIkey + '&q=' + query + '&limit=10&rating=g';
 
     let response = await fetch(API + '?' + parms)
     let data = await response.json()
